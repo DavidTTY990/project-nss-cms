@@ -3,7 +3,7 @@ import EditProductCard from "./EditProductCard";
 import AddNewProductModule from "./AddNewProductModule";
 import AddNewProductCard from "./AddNewProductCard";
 
-export default function AdminPage({ data }) {
+export default function AdminPage({ data, handleAddNewProduct }) {
   return (
     <div className="container-fluid p-0">
       <nav className="navbar navbar-expand-lg bg-warning justify-content-between">

@@ -68,7 +68,7 @@ export default function AdminPage({ data, handleAddNewProduct }) {
             </div>
           </div>
           <div className="container-fluid">
-            <AddNewProductModule />
+            <AddNewProductModule onAddNewProduct={handleAddNewProduct} />
             <EditProductModal />
             <div className="row row-cols-auto row-cols-lg-5 g-3">
               <AddNewProductCard />

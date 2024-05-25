@@ -25,11 +25,11 @@ function App() {
       productName: "三小自動鉛筆",
       productDes: "好寫又可愛的三麗鷗官方認證自動鉛筆，大人小孩都喜愛",
       productPrice: 222,
-      productId: 111,
+      productId: new Date().getTime(),
       productImg: {
-        img1: "../../../public/Image/三麗鷗自動鉛筆1.jpg",
-        img2: "../../../public/Image/三麗鷗自動鉛筆2.jpg",
-        img3: "../../../public/Image/三麗鷗自動鉛筆3.jpg",
+        img1: "/Image/三麗鷗自動鉛筆1.jpg",
+        img2: "/Image/三麗鷗自動鉛筆2.jpg",
+        img3: "/Image/三麗鷗自動鉛筆3.jpg",
       },
     };
     setProductData((prevData) => [...prevData, newData]);

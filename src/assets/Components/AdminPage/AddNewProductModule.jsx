@@ -1,4 +1,4 @@
-export default function AddNewProductModule() {
+export default function AddNewProductModule({onAddNewProduct}) {
   return (
     <>
       <div
@@ -22,19 +22,28 @@ export default function AddNewProductModule() {
               ></button>
             </div>
             <div className="modal-body">
-              <div className="">
+              <div>
                 <h3>Product Name</h3>
+                <input type="text" placeholder="Product Name" />
+              </div>
+              <div>
                 <p>Product Description</p>
+                <input type="text" placeholder="Product Description" />
+              </div>
+              <div>
                 <p>Product Price</p>
-                {/* <button type="button" className="btn btn-success">
+                <input type="number" placeholder="Product Price" />
+              </div>
+              <div>
+                <p>Quantity</p>
+                <input type="number" placeholder="Quantity" />
+              </div>
+              {/* <button type="button" className="btn btn-success">
                   <i className="bi bi-plus"></i>
                 </button> */}
-                <input type="text" placeholder="Quantity" />
-                {/* <button type="button" className="btn btn-danger">
+              {/* <button type="button" className="btn btn-danger">
                   <i className="bi bi-dash"></i>
                 </button> */}
-              </div>
-              <div></div>
             </div>
             <div className="modal-footer">
               <button
@@ -44,8 +53,8 @@ export default function AddNewProductModule() {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
-                Add to Cart
+              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={onAddNewProduct}>
+                Add New Product
               </button>
             </div>
           </div>

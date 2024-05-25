@@ -1,4 +1,4 @@
-export default function AddNewProductModule({onAddNewProduct}) {
+export default function AddNewProductModule({handleSetNewProductInput, handleSetProductData}) {
   return (
     <>
       <div
@@ -24,19 +24,19 @@ export default function AddNewProductModule({onAddNewProduct}) {
             <div className="modal-body">
               <div>
                 <h3>Product Name</h3>
-                <input type="text" placeholder="Product Name" />
+                <input type="text" placeholder="Product Name" name="productName" onChange={handleSetNewProductInput} />
               </div>
               <div>
                 <p>Product Description</p>
-                <input type="text" placeholder="Product Description" />
+                <input type="text" placeholder="Product Description" name="productDes" onChange={handleSetNewProductInput} />
               </div>
               <div>
                 <p>Product Price</p>
-                <input type="number" placeholder="Product Price" />
+                <input type="number" placeholder="Product Price" name="productPrice" onChange={handleSetNewProductInput} />
               </div>
               <div>
                 <p>Quantity</p>
-                <input type="number" placeholder="Quantity" />
+                <input type="number" placeholder="Quantity" name="productStock" onChange={handleSetNewProductInput} />
               </div>
               {/* <button type="button" className="btn btn-success">
                   <i className="bi bi-plus"></i>
@@ -53,7 +53,7 @@ export default function AddNewProductModule({onAddNewProduct}) {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={onAddNewProduct}>
+              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleSetProductData}>
                 Add New Product
               </button>
             </div>

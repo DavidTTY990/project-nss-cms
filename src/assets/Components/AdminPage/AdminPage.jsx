@@ -3,7 +3,7 @@ import EditProductCard from "./EditProductCard";
 import AddNewProductModule from "./AddNewProductModule";
 import AddNewProductCard from "./AddNewProductCard";
 
-export default function AdminPage({ data, handleAddNewProduct }) {
+export default function AdminPage({ data, handleSetNewProductInput, handleSetProductData }) {
   return (
     <div className="container-fluid p-0">
       <nav className="navbar navbar-expand-lg bg-warning justify-content-between">
@@ -68,7 +68,7 @@ export default function AdminPage({ data, handleAddNewProduct }) {
             </div>
           </div>
           <div className="container-fluid">
-            <AddNewProductModule onAddNewProduct={handleAddNewProduct} />
+            <AddNewProductModule handleSetNewProductInput={handleSetNewProductInput} handleSetProductData={handleSetProductData} />
             <EditProductModal />
             <div className="row row-cols-auto row-cols-lg-5 g-3">
               <AddNewProductCard />

@@ -10,6 +10,7 @@ import AdminPage from "./assets/Components/AdminPage/AdminPage";
 
 function App() {
   const [productCategory, setProductCategory] = useState([]);
+  const [newProductInput, setNewProductInput] = useState({});
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
@@ -20,24 +21,32 @@ function App() {
     setProductData(DummyData);
   }
 
-  function addNewProduct() {
-    const newData = {
-      productName: "三小自動鉛筆",
-      productDes: "好寫又可愛的三麗鷗官方認證自動鉛筆，大人小孩都喜愛",
-      productPrice: 222,
+  function handleSetNewProductInput(e) {
+    const { name, value } = e.target;
+    setNewProductInput((prevNewProductInput) => ({
+      ...prevNewProductInput,
+      [name]: value,
+    }))
+    console.log(newProductInput)
+  }
+
+  function handleSetProductData() {
+    const newProductData = {
       productId: new Date().getTime(),
+      ...newProductInput,
       productImg: {
-        img1: "/Image/三麗鷗自動鉛筆1.jpg",
-        img2: "/Image/三麗鷗自動鉛筆2.jpg",
-        img3: "/Image/三麗鷗自動鉛筆3.jpg",
+        img1: "/Image/蜂巢軟握中性筆1.jpg",
+        img2: "/Image/蜂巢軟握中性筆2.jpg",
+        img3: "/Image/蜂巢軟握中性筆3.jpg",
       },
     };
-    setProductData((prevData) => [...prevData, newData]);
+    console.log(newProductData)
+    setProductData((prevData) => [...prevData, newProductData]);
   }
   return (
     <>
       {/* <FrontPage /> */}
-      <AdminPage data={productData} handleAddNewProduct={addNewProduct} />
+      <AdminPage data={productData} handleSetNewProductInput={handleSetNewProductInput} handleSetProductData={handleSetProductData} />
     </>
   );
 }

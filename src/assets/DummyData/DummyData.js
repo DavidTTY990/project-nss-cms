@@ -30,9 +30,9 @@ export const DummyData = [
     productPrice: 0,
     productStock: 0,
     productImg: {
-      img1: "../../../public/Image/蜂巢軟握中性筆1.jpg",
-      img2: "../../../public/Image/蜂巢軟握中性筆2.jpg",
-      img3: "../../../public/Image/蜂巢軟握中性筆3.jpg",
+      img1: "/Image/蜂巢軟握中性筆1.jpg",
+      img2: "/Image/蜂巢軟握中性筆2.jpg",
+      img3: "/Image/蜂巢軟握中性筆3.jpg",
     },
   },
   {
@@ -42,9 +42,9 @@ export const DummyData = [
     productPrice: 0,
     productStock: 0,
     productImg: {
-      img1: "../../../public/Image/三麗鷗自動鉛筆1.jpg",
-      img2: "../../../public/Image/三麗鷗自動鉛筆2.jpg",
-      img3: "../../../public/Image/三麗鷗自動鉛筆3.jpg",
+      img1: "/Image/三麗鷗自動鉛筆1.jpg",
+      img2: "/Image/三麗鷗自動鉛筆2.jpg",
+      img3: "/Image/三麗鷗自動鉛筆3.jpg",
     },
   },
   {
@@ -54,9 +54,9 @@ export const DummyData = [
     productPrice: 0,
     productStock: 0,
     productImg: {
-      img1: "../../../public/Image/奶油捲捲1.jpg",
-      img2: "../../../public/Image/奶油捲捲2.jpg",
-      img3: "../../../public/Image/奶油捲捲3.jpg",
+      img1: "/Image/奶油捲捲1.jpg",
+      img2: "/Image/奶油捲捲2.jpg",
+      img3: "/Image/奶油捲捲3.jpg",
     },
   },
   {
@@ -66,9 +66,9 @@ export const DummyData = [
     productPrice: 0,
     productStock: 0,
     productImg: {
-      img1: "../../../public/Image/蜂巢軟握中性筆1.jpg",
-      img2: "../../../public/Image/蜂巢軟握中性筆2.jpg",
-      img3: "../../../public/Image/蜂巢軟握中性筆3.jpg",
+      img1: "/Image/蜂巢軟握中性筆1.jpg",
+      img2: "/Image/蜂巢軟握中性筆2.jpg",
+      img3: "/Image/蜂巢軟握中性筆3.jpg",
     },
   },
   {
@@ -78,9 +78,9 @@ export const DummyData = [
     productPrice: 0,
     productStock: 0,
     productImg: {
-      img1: "../../../public/Image/三麗鷗自動鉛筆1.jpg",
-      img2: "../../../public/Image/三麗鷗自動鉛筆2.jpg",
-      img3: "../../../public/Image/三麗鷗自動鉛筆3.jpg",
+      img1: "/Image/三麗鷗自動鉛筆1.jpg",
+      img2: "/Image/三麗鷗自動鉛筆2.jpg",
+      img3: "/Image/三麗鷗自動鉛筆3.jpg",
     },
   },
   {
@@ -90,9 +90,9 @@ export const DummyData = [
     productPrice: 0,
     productStock: 0,
     productImg: {
-      img1: "../../../public/Image/奶油捲捲1.jpg",
-      img2: "../../../public/Image/奶油捲捲2.jpg",
-      img3: "../../../public/Image/奶油捲捲3.jpg",
+      img1: "/Image/奶油捲捲1.jpg",
+      img2: "/Image/奶油捲捲2.jpg",
+      img3: "/Image/奶油捲捲3.jpg",
     },
   },
   {
@@ -102,9 +102,9 @@ export const DummyData = [
     productPrice: 0,
     productStock: 0,
     productImg: {
-      img1: "../../../public/Image/蜂巢軟握中性筆1.jpg",
-      img2: "../../../public/Image/蜂巢軟握中性筆2.jpg",
-      img3: "../../../public/Image/蜂巢軟握中性筆3.jpg",
+      img1: "/Image/蜂巢軟握中性筆1.jpg",
+      img2: "/Image/蜂巢軟握中性筆2.jpg",
+      img3: "/Image/蜂巢軟握中性筆3.jpg",
     },
   },
 ];

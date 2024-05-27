@@ -3,7 +3,7 @@ import EditProductCard from "./EditProductCard";
 import AddNewProductModule from "./AddNewProductModule";
 import AddNewProductCard from "./AddNewProductCard";
 
-export default function AdminPage({ data, handleSetNewProductInput, handleSetProductData }) {
+export default function AdminPage({ data, handleSetNewProductInput, handleSetProductData, handleDeleteProduct }) {
   return (
     <div className="container-fluid p-0">
       <nav className="navbar navbar-expand-lg bg-warning justify-content-between">
@@ -74,7 +74,7 @@ export default function AdminPage({ data, handleSetNewProductInput, handleSetPro
               <AddNewProductCard />
               {data.map((product) => {
                 return (
-                  <EditProductCard data={product} key={product.productId} />
+                  <EditProductCard data={product} key={product.productId} productId={product.productId} handleDeleteProduct={handleDeleteProduct} />
                 );
               })}
             </div>

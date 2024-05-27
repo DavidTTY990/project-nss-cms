@@ -1,4 +1,4 @@
-export default function EditProductCard({ data }) {
+export default function EditProductCard({ data, productId, handleDeleteProduct }) {
   return (
     <div className="col position-relative">
       <div className="position-absolute z-1">
@@ -11,7 +11,11 @@ export default function EditProductCard({ data }) {
         >
           Edit
         </button>
-        <button type="button" className="btn btn-danger btn-sm">
+        <button
+          type="button"
+          className="btn btn-danger btn-sm"
+          onClick={() => handleDeleteProduct(productId)}
+        >
           Delete
         </button>
       </div>

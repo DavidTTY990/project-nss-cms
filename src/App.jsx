@@ -43,10 +43,22 @@ function App() {
     console.log(newProductData)
     setProductData((prevData) => [...prevData, newProductData]);
   }
+
+  function handleDeleteProduct(productId) {
+    const newProductData = productData.filter((product) => product.productId !== productId);
+    setProductData(newProductData);
+  }
+
+
   return (
     <>
       {/* <FrontPage /> */}
-      <AdminPage data={productData} handleSetNewProductInput={handleSetNewProductInput} handleSetProductData={handleSetProductData} />
+      <AdminPage
+        data={productData}
+        handleSetNewProductInput={handleSetNewProductInput}
+        handleSetProductData={handleSetProductData}
+        handleDeleteProduct={handleDeleteProduct}
+      />
     </>
   );
 }

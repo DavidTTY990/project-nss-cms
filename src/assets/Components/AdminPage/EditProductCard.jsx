@@ -1,4 +1,8 @@
-export default function EditProductCard({ data, productId, handleDeleteProduct }) {
+import { useContext } from "react";
+import { FunctionContext } from "../../../App";
+
+export default function EditProductCard({ data, productId }) {
+  const { handleDeleteProduct } = useContext(FunctionContext);
   return (
     <div className="col position-relative">
       <div className="position-absolute z-1">

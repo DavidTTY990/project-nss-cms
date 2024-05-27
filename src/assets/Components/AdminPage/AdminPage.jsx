@@ -2,8 +2,12 @@ import EditProductModal from "./EditProductModal";
 import EditProductCard from "./EditProductCard";
 import AddNewProductModule from "./AddNewProductModule";
 import AddNewProductCard from "./AddNewProductCard";
+import { useContext } from "react";
+import { FunctionContext } from "../../../App";
 
-export default function AdminPage({ data, handleSetNewProductInput, handleSetProductData, handleDeleteProduct }) {
+export default function AdminPage() {
+  const { productData } = useContext(FunctionContext);
+
   return (
     <div className="container-fluid p-0">
       <nav className="navbar navbar-expand-lg bg-warning justify-content-between">
@@ -68,13 +72,17 @@ export default function AdminPage({ data, handleSetNewProductInput, handleSetPro
             </div>
           </div>
           <div className="container-fluid">
-            <AddNewProductModule handleSetNewProductInput={handleSetNewProductInput} handleSetProductData={handleSetProductData} />
+            <AddNewProductModule />
             <EditProductModal />
             <div className="row row-cols-auto row-cols-lg-5 g-3">
               <AddNewProductCard />
-              {data.map((product) => {
+              {productData.map((product) => {
                 return (
-                  <EditProductCard data={product} key={product.productId} productId={product.productId} handleDeleteProduct={handleDeleteProduct} />
+                  <EditProductCard
+                    key={product.productId}
+                    productId={product.productId}
+                    data={product}
+                  />
                 );
               })}
             </div>

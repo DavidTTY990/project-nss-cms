@@ -3,10 +3,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min"; // Bootstrap Bundle JS
 import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
 
 import { DummyData } from "./assets/DummyData/DummyData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import globalStyles from "./assets/StyleComponents/GlobalCss.module.css";
 import FrontPage from "./assets/Components/UserPage/FrontPage";
 import AdminPage from "./assets/Components/AdminPage/AdminPage";
+
+export const FunctionContext = createContext(null);
 
 function App() {
   const [productCategory, setProductCategory] = useState([]);
@@ -26,8 +28,8 @@ function App() {
     setNewProductInput((prevNewProductInput) => ({
       ...prevNewProductInput,
       [name]: value,
-    }))
-    console.log(newProductInput)
+    }));
+    console.log(newProductInput);
   }
 
   function handleSetProductData() {
@@ -40,25 +42,29 @@ function App() {
         img3: "/Image/蜂巢軟握中性筆3.jpg",
       },
     };
-    console.log(newProductData)
     setProductData((prevData) => [...prevData, newProductData]);
   }
 
   function handleDeleteProduct(productId) {
-    const newProductData = productData.filter((product) => product.productId !== productId);
+    const newProductData = productData.filter(
+      (product) => product.productId !== productId
+    );
     setProductData(newProductData);
   }
 
-
   return (
     <>
-      {/* <FrontPage /> */}
-      <AdminPage
-        data={productData}
-        handleSetNewProductInput={handleSetNewProductInput}
-        handleSetProductData={handleSetProductData}
-        handleDeleteProduct={handleDeleteProduct}
-      />
+      <FunctionContext.Provider
+        value={{
+          productData,
+          handleSetNewProductInput,
+          handleSetProductData,
+          handleDeleteProduct,
+        }}
+      >
+        {/* <FrontPage /> */}
+        <AdminPage />
+      </FunctionContext.Provider>
     </>
   );
 }

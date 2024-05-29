@@ -6,18 +6,29 @@ import { DummyData } from "./assets/DummyData/DummyData";
 import { useState, useEffect, createContext } from "react";
 import globalStyles from "./assets/StyleComponents/GlobalCss.module.css";
 import FrontPage from "./assets/Components/UserPage/FrontPage";
-import AdminPage from "./assets/Components/AdminPage/AdminPage";
+import AdmiFrontnPage from "./assets/Components/AdminPage/AdminFrontPage";
 
 export const FunctionContext = createContext(null);
 
 function App() {
-  const [productCategory, setProductCategory] = useState([]);
-  const [newProductInput, setNewProductInput] = useState({});
-  const [productData, setProductData] = useState([]);
-
   useEffect(() => {
     fetchProductData(DummyData);
   }, []);
+
+  const [productCategory, setProductCategory] = useState([]);
+  const [newProductInput, setNewProductInput] = useState({});
+  const [productData, setProductData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const productsPerPage = 9;
+
+  const indexOfLastProductPerPage = currentPage * productsPerPage;
+  const indexOfFirstProductPerPage =
+    indexOfLastProductPerPage - productsPerPage;
+  const currentPageProducts = productData.slice(
+    indexOfFirstProductPerPage,
+    indexOfLastProductPerPage
+  );
 
   function fetchProductData(DummyData) {
     setProductData(DummyData);
@@ -52,6 +63,10 @@ function App() {
     setProductData(newProductData);
   }
 
+  function handleSetCurrentPage(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
+
   return (
     <>
       <FunctionContext.Provider
@@ -60,10 +75,13 @@ function App() {
           handleSetNewProductInput,
           handleSetProductData,
           handleDeleteProduct,
+          handleSetCurrentPage,
+          currentPageProducts,
+          currentPage,
         }}
       >
-        {/* <FrontPage /> */}
-        <AdminPage />
+        {/* <UserFrontPage /> */}
+        <AdmiFrontnPage />
       </FunctionContext.Provider>
     </>
   );

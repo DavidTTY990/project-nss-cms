@@ -12,16 +12,29 @@ export default function Pagination({ productsPerPage, length }) {
   return (
     <div className="container mt-5">
       <ul className="pagination d-flex justify-content-center">
-        <li className="page-item">
-          <a className="page-link" href="#" aria-label="Previous">
+        <li className={
+            currentPage === paginationNumbers[0]
+              ? "page-item disabled"
+              : "page-item"
+          }>
+          <a
+            className="page-link"
+            href="#"
+            aria-label="Previous"
+            onClick={() => {
+              handleSetCurrentPage(currentPage - 1);
+            }}
+          >
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        {paginationNumbers.map((pageNumber) => {
+        {paginationNumbers.map((pageNumber, index) => {
           return (
-            <li className="page-item">
+            <li className="page-item" key={index}>
               <a
-                className={pageNumber === currentPage ? "page-link active" : "page-link"}
+                className={
+                  pageNumber === currentPage ? "page-link active" : "page-link"
+                }
                 href="#"
                 key={pageNumber}
                 onClick={() => handleSetCurrentPage(pageNumber)}
@@ -31,8 +44,21 @@ export default function Pagination({ productsPerPage, length }) {
             </li>
           );
         })}
-        <li className="page-item">
-          <a className="page-link" href="#" aria-label="Next">
+        <li
+          className={
+            currentPage === paginationNumbers.length
+              ? "page-item disabled"
+              : "page-item"
+          }
+        >
+          <a
+            className="page-link"
+            href="#"
+            aria-label="Next"
+            onClick={() => {
+              handleSetCurrentPage(currentPage + 1);
+            }}
+          >
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>

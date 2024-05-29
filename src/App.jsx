@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
 import { DummyData } from "./assets/DummyData/DummyData";
 import { useState, useEffect, createContext } from "react";
 import globalStyles from "./assets/StyleComponents/GlobalCss.module.css";
-import FrontPage from "./assets/Components/UserPage/FrontPage";
+import UserFrontPage from "./assets/Components/UserPage/UserFrontPage"
 import AdmiFrontnPage from "./assets/Components/AdminPage/AdminFrontPage";
 
 export const FunctionContext = createContext(null);

@@ -1,6 +1,6 @@
 import { ProductModal } from "./ProductModal";
 
-export default function FrontPage() {
+export default function UserFrontPage() {
   return (
     <div className="container-fluid p-0">
       <nav className="navbar navbar-expand-lg bg-body-tertiary justify-content-between">

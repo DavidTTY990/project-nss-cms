@@ -1,12 +1,12 @@
 import styles from "../../StyleComponents/ProductModal.module.css";
 import ProductCarousel from "../UserPage/ProductCarousel";
 
-export default function EditProductModal() {
+export default function EditProductModal({ product }) {
   return (
     <>
       <div
         className="modal fade"
-        id="editProductModal"
+        id={`${product.productId}ForModal`}
         tabIndex="-1"
         aria-labelledby="editProductModal"
         aria-hidden="true"
@@ -25,23 +25,39 @@ export default function EditProductModal() {
               ></button>
             </div>
             <div className="modal-body">
-              <ProductCarousel />
+              <ProductCarousel product={product} />
               <div className={styles.textProductIntro}>
                 <div>
                   <h3>Product Name</h3>
-                  <input type="text" placeholder="Product Name" />
+                  <input
+                    type="text"
+                    placeholder="Product Name"
+                    value={product.productName}
+                  />
                 </div>
                 <div>
                   <p>Product Description</p>
-                  <input type="text" placeholder="Product Description" />
+                  <input
+                    type="text"
+                    placeholder="Product Description"
+                    value={product.productDes}
+                  />
                 </div>
                 <div>
                   <p>Product Price</p>
-                  <input type="number" placeholder="Product Price" />
+                  <input
+                    type="number"
+                    placeholder="Product Price"
+                    value={product.productPrice}
+                  />
                 </div>
                 <div>
                   <p>Quantity</p>
-                  <input type="number" placeholder="Quantity" />
+                  <input
+                    type="number"
+                    placeholder="Quantity"
+                    value={product.productStock}
+                  />
                 </div>
                 {/* <button type="button" className="btn btn-success">
                   <i className="bi bi-plus"></i>

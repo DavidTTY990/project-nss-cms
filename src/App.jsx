@@ -16,7 +16,12 @@ function App() {
   }, []);
 
   const [productCategory, setProductCategory] = useState([]);
-  const [newProductInput, setNewProductInput] = useState({});
+  const [newProductInput, setNewProductInput] = useState({
+    productName: "",
+    productDes: "",
+    productPrice: "",
+    productStock: "",
+  });
   const [productData, setProductData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -40,7 +45,6 @@ function App() {
       ...prevNewProductInput,
       [name]: value,
     }));
-    console.log(newProductInput);
   }
 
   function handleSetProductData() {
@@ -54,6 +58,12 @@ function App() {
       },
     };
     setProductData((prevData) => [...prevData, newProductData]);
+    setNewProductInput({
+      productName: "",
+      productDes: "",
+      productPrice: "",
+      productStock: "",
+    });
   }
 
   function handleDeleteProduct(productId) {
@@ -72,6 +82,7 @@ function App() {
       <FunctionContext.Provider
         value={{
           productData,
+          newProductInput,
           handleSetNewProductInput,
           handleSetProductData,
           handleDeleteProduct,

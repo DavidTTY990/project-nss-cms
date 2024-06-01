@@ -7,7 +7,16 @@ import { useContext } from "react";
 import { FunctionContext } from "../../../App";
 
 export default function AdminFrontPage() {
-  const { productData, currentPageProducts } = useContext(FunctionContext);
+  const {
+    productData,
+    currentPageProducts,
+    handleSetCurrentPage,
+    currentPage,
+  } = useContext(FunctionContext);
+
+  if (currentPageProducts.length === 0) {
+    handleSetCurrentPage(currentPage - 1);
+  }
 
   return (
     <div className="container-fluid p-0">
@@ -74,7 +83,11 @@ export default function AdminFrontPage() {
           </div>
           <div className="container-fluid">
             <AddNewProductModule />
-            <EditProductModal />
+            {currentPageProducts.map((product) => {
+              return (
+                <EditProductModal key={product.productId} product={product} />
+              );
+            })}
             <div className="row row-cols-auto row-cols-lg-5 g-3">
               <AddNewProductCard />
               {currentPageProducts.map((product) => {

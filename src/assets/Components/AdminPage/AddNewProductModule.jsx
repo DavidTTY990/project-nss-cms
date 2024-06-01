@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FunctionContext } from "../../../App";
 
 export default function AddNewProductModule() {
-  const { handleSetNewProductInput, handleSetProductData } =
+  const { handleSetNewProductInput, handleSetProductData, newProductInput } =
     useContext(FunctionContext);
   return (
     <>
@@ -27,40 +27,52 @@ export default function AddNewProductModule() {
               ></button>
             </div>
             <div className="modal-body">
-              <div>
-                <h3>Product Name</h3>
+              <div className="">
+                <label htmlFor="prdouctName" className="d-block">
+                  <h3>Product Name</h3>
+                </label>
                 <input
                   type="text"
                   placeholder="Product Name"
                   name="productName"
                   onChange={handleSetNewProductInput}
+                  value={newProductInput.productName}
                 />
               </div>
               <div>
-                <p>Product Description</p>
+                <label htmlFor="productDes" className="d-block">
+                  <p>Product Description</p>
+                </label>
                 <input
                   type="text"
                   placeholder="Product Description"
                   name="productDes"
                   onChange={handleSetNewProductInput}
+                  value={newProductInput.productDes}
                 />
               </div>
               <div>
-                <p>Product Price</p>
+                <label htmlFor="productPrice" className="d-block">
+                  <p>Product Price</p>
+                </label>
                 <input
                   type="number"
                   placeholder="Product Price"
                   name="productPrice"
                   onChange={handleSetNewProductInput}
+                  value={newProductInput.productPrice}
                 />
               </div>
               <div>
-                <p>Quantity</p>
+                <label htmlFor="productStock" className="d-block">
+                  <p>Quantity</p>
+                </label>
                 <input
                   type="number"
                   placeholder="Quantity"
                   name="productStock"
                   onChange={handleSetNewProductInput}
+                  value={newProductInput.productStock}
                 />
               </div>
               {/* <button type="button" className="btn btn-success">

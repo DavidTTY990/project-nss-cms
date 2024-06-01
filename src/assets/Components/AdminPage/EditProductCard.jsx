@@ -9,7 +9,7 @@ export default function EditProductCard({ data, productId }) {
         <button
           type="button"
           className="btn btn-warning btn-sm me-2"
-          data-bs-target="#editProductModal"
+          data-bs-target={`#${productId}ForModal`}
           data-bs-toggle="modal"
           role="button"
         >

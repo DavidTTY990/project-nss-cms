@@ -1,15 +1,15 @@
-export default function ProductCarousel() {
+export default function ProductCarousel({ product }) {
   return (
     <div
-      id="carouselExampleIndicators"
+      id={`${product.productId}ForCarousel`}
       className="carousel slide"
       data-bs-interval="false"
-      style={{ width: '300px', margin: '0 auto',}}
+      style={{ width: "300px", margin: "0 auto" }}
     >
       <div className="carousel-indicators">
         <button
           type="button"
-          data-bs-target="#carouselExampleIndicators"
+          data-bs-target={`#${product.productId}ForCarousel`}
           data-bs-slide-to="0"
           className="active"
           aria-current="true"
@@ -17,13 +17,13 @@ export default function ProductCarousel() {
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselExampleIndicators"
+          data-bs-target={`#${product.productId}ForCarousel`}
           data-bs-slide-to="1"
           aria-label="Slide 2"
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselExampleIndicators"
+          data-bs-target={`#${product.productId}ForCarousel`}
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
@@ -31,30 +31,30 @@ export default function ProductCarousel() {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="http://fakeimg.pl/300x300/"
+            src={product.productImg.img1}
             className="d-block w-100"
-            alt="..."
+            alt="product image 1"
           />
         </div>
         <div className="carousel-item">
           <img
-            src="http://fakeimg.pl/300x300/"
+            src={product.productImg.img2}
             className="d-block w-100"
-            alt="http://fakeimg.pl/300x300/"
+            alt="product image 2"
           />
         </div>
         <div className="carousel-item">
           <img
-            src="http://fakeimg.pl/300x300/"
+            src={product.productImg.img3}
             className="d-block w-100"
-            alt="..."
+            alt="product image 3"
           />
         </div>
       </div>
       <button
         className="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselExampleIndicators"
+        data-bs-target={`#${product.productId}ForCarousel`}
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -63,7 +63,7 @@ export default function ProductCarousel() {
       <button
         className="carousel-control-next"
         type="button"
-        data-bs-target="#carouselExampleIndicators"
+        data-bs-target={`#${product.productId}ForCarousel`}
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>

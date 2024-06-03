@@ -27,112 +27,54 @@ export default function AddNewProductModule() {
               ></button>
             </div>
             <div className="modal-body">
-              <div className="input-group mb-3">
-                <span
-                  className="input-group-text"
-                  id="inputGroup-sizing-default"
-                >
-                  Product Name
-                </span>
+              <div className="form-floating mb-3">
                 <input
                   type="text"
                   className="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-              <div className="form-floating">
-                <textarea
-                  className="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style={{'height': '100px'}}
-                ></textarea>
-                <label for="floatingTextarea2">Comments</label>
-              </div>
-              <div className="input-group mb-3">
-                <span
-                  className="input-group-text"
-                  id="inputGroup-sizing-default"
-                >
-                  Default
-                </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-              <div className="input-group mb-3">
-                <span
-                  className="input-group-text"
-                  id="inputGroup-sizing-default"
-                >
-                  Default
-                </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="prdouctName" className="d-block">
-                  <h3>Product Name</h3>
-                </label>
-                <input
-                  type="text"
+                  id="floatingInput"
                   placeholder="Product Name"
                   name="productName"
                   onChange={handleSetNewProductInput}
                   value={newProductInput.productName}
                 />
+                <label for="floatingInput">Product Name</label>
               </div>
-              <div>
-                <label htmlFor="productDes" className="d-block">
-                  <p>Product Description</p>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Product Description"
+              <div className="form-floating mb-3">
+                <textarea
+                  className="form-control"
+                  placeholder="Set Product Description"
+                  id="floatingTextarea2"
+                  style={{ height: "100px" }}
                   name="productDes"
                   onChange={handleSetNewProductInput}
                   value={newProductInput.productDes}
-                />
+                ></textarea>
+                <label for="floatingTextarea2">Product Description</label>
               </div>
-              <div>
-                <label htmlFor="productPrice" className="d-block">
-                  <p>Product Price</p>
-                </label>
+              <div className="form-floating mb-3">
                 <input
                   type="number"
+                  className="form-control"
+                  id="floatingInput"
                   placeholder="Product Price"
                   name="productPrice"
                   onChange={handleSetNewProductInput}
                   value={newProductInput.productPrice}
                 />
+                <label for="floatingInput">Product Price</label>
               </div>
-              <div>
-                <label htmlFor="productStock" className="d-block">
-                  <p>Quantity</p>
-                </label>
+              <div className="form-floating mb-3">
                 <input
                   type="number"
+                  className="form-control"
+                  id="floatingInput"
                   placeholder="Quantity"
                   name="productStock"
                   onChange={handleSetNewProductInput}
                   value={newProductInput.productStock}
                 />
+                <label for="floatingInput">Quantity</label>
               </div>
-              {/* <button type="button" className="btn btn-success">
-                  <i className="bi bi-plus"></i>
-                </button> */}
-              {/* <button type="button" className="btn btn-danger">
-                  <i className="bi bi-dash"></i>
-                </button> */}
             </div>
             <div className="modal-footer">
               <button

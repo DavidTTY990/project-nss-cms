@@ -27,7 +27,59 @@ export default function AddNewProductModule() {
               ></button>
             </div>
             <div className="modal-body">
-              <div className="">
+              <div className="input-group mb-3">
+                <span
+                  className="input-group-text"
+                  id="inputGroup-sizing-default"
+                >
+                  Product Name
+                </span>
+                <input
+                  type="text"
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                />
+              </div>
+              <div className="form-floating">
+                <textarea
+                  className="form-control"
+                  placeholder="Leave a comment here"
+                  id="floatingTextarea2"
+                  style={{'height': '100px'}}
+                ></textarea>
+                <label for="floatingTextarea2">Comments</label>
+              </div>
+              <div className="input-group mb-3">
+                <span
+                  className="input-group-text"
+                  id="inputGroup-sizing-default"
+                >
+                  Default
+                </span>
+                <input
+                  type="text"
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                />
+              </div>
+              <div className="input-group mb-3">
+                <span
+                  className="input-group-text"
+                  id="inputGroup-sizing-default"
+                >
+                  Default
+                </span>
+                <input
+                  type="text"
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="prdouctName" className="d-block">
                   <h3>Product Name</h3>
                 </label>

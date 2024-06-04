@@ -7,16 +7,7 @@ import { useContext } from "react";
 import { FunctionContext } from "../../../App";
 
 export default function AdminFrontPage() {
-  const {
-    productData,
-    currentPageProducts,
-    handleSetCurrentPage,
-    currentPage,
-  } = useContext(FunctionContext);
-
-  if (currentPageProducts.length === 0) {
-    handleSetCurrentPage(currentPage - 1);
-  }
+  const { productData, currentPageProducts } = useContext(FunctionContext);
 
   return (
     <div className="container-fluid p-0">

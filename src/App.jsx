@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
 import { DummyData } from "./assets/DummyData/DummyData";
 import { useState, useEffect, createContext } from "react";
 import globalStyles from "./assets/StyleComponents/GlobalCss.module.css";
-import UserFrontPage from "./assets/Components/UserPage/UserFrontPage"
+import UserFrontPage from "./assets/Components/UserPage/UserFrontPage";
 import AdmiFrontnPage from "./assets/Components/AdminPage/AdminFrontPage";
 
 export const FunctionContext = createContext(null);
@@ -66,35 +66,48 @@ function App() {
     });
   }
 
-  function handleDeleteProduct(productId) {
+  function handleDeleteProduct(productId, currentPage) {
+    console.log(currentPageProducts.length)
     const newProductData = productData.filter(
       (product) => product.productId !== productId
     );
     setProductData(newProductData);
+    console.log(currentPageProducts)
+    if (currentPageProducts.length === 1) {
+      if (currentPage > 1) {
+        handleSetCurrentPage(currentPage - 1);
+      }
+    }
   }
 
   function handleSetCurrentPage(pageNumber) {
     setCurrentPage(pageNumber);
   }
 
+  function handleEditProductInput(productId, e) {
+    const { name, value } = e.target;
+    const productToEdit = productData.find((item) => {
+      return item.productId === productId;
+    });
+    console.log(productToEdit);
+  }
   return (
-    <>
-      <FunctionContext.Provider
-        value={{
-          productData,
-          newProductInput,
-          handleSetNewProductInput,
-          handleSetProductData,
-          handleDeleteProduct,
-          handleSetCurrentPage,
-          currentPageProducts,
-          currentPage,
-        }}
-      >
-        {/* <UserFrontPage /> */}
-        <AdmiFrontnPage />
-      </FunctionContext.Provider>
-    </>
+    <FunctionContext.Provider
+      value={{
+        productData,
+        newProductInput,
+        handleSetNewProductInput,
+        handleEditProductInput,
+        handleSetProductData,
+        handleDeleteProduct,
+        handleSetCurrentPage,
+        currentPageProducts,
+        currentPage,
+      }}
+    >
+      {/* <UserFrontPage /> */}
+      <AdmiFrontnPage />
+    </FunctionContext.Provider>
   );
 }
 

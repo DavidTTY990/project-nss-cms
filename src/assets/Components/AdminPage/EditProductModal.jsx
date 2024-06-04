@@ -1,87 +1,99 @@
 import styles from "../../StyleComponents/ProductModal.module.css";
-import ProductCarousel from "../UserPage/ProductCarousel";
+import ProductCarousel from "../CommonComponents/ProductCarousel";
+import { useContext } from "react";
+import { FunctionContext } from "../../../App";
+
 
 export default function EditProductModal({ product }) {
+  const { handleEditProductInput } = useContext(FunctionContext);
   return (
-    <>
-      <div
-        className="modal fade"
-        id={`${product.productId}ForModal`}
-        tabIndex="-1"
-        aria-labelledby="editProductModal"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header bg-warning">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Edit Product Modal
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+    <div
+      className="modal fade"
+      id={`${product.productId}ForModal`}
+      tabIndex="-1"
+      aria-labelledby="editProductModal"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header bg-warning">
+            <h5 className="modal-title" id="exampleModalLabel">
+              Edit Product Modal
+            </h5>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div className="modal-body">
+            <ProductCarousel product={product} />
+
+            <div className="form-floating mt-3 mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Product Name"
+                name="productName"
+                defaultValue={product.productName}
+                onChange={handleEditProductInput}
+              />
+              <label htmlFor="floatingInput">Product Name</label>
             </div>
-            <div className="modal-body">
-              <ProductCarousel product={product} />
-              <div className={styles.textProductIntro}>
-                <div>
-                  <h3>Product Name</h3>
-                  <input
-                    type="text"
-                    placeholder="Product Name"
-                    value={product.productName}
-                  />
-                </div>
-                <div>
-                  <p>Product Description</p>
-                  <input
-                    type="text"
-                    placeholder="Product Description"
-                    value={product.productDes}
-                  />
-                </div>
-                <div>
-                  <p>Product Price</p>
-                  <input
-                    type="number"
-                    placeholder="Product Price"
-                    value={product.productPrice}
-                  />
-                </div>
-                <div>
-                  <p>Quantity</p>
-                  <input
-                    type="number"
-                    placeholder="Quantity"
-                    value={product.productStock}
-                  />
-                </div>
-                {/* <button type="button" className="btn btn-success">
-                  <i className="bi bi-plus"></i>
-                </button> */}
-                {/* <button type="button" className="btn btn-danger">
-                  <i className="bi bi-dash"></i>
-                </button> */}
-              </div>
+            <div className="form-floating mb-3">
+              <textarea
+                className="form-control"
+                placeholder="Set Product Description"
+                id="floatingTextarea2"
+                style={{ height: "100px" }}
+                name="productDes"
+                defaultValue={product.productDes}
+              ></textarea>
+              <label htmlFor="floatingTextarea2">Product Description</label>
             </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Add to Cart
-              </button>
+            <div className="form-floating mb-3">
+              <input
+                type="number"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Product Price"
+                name="productPrice"
+                defaultValue={product.productPrice}
+              />
+              <label htmlFor="floatingInput">Product Price</label>
             </div>
+            <div className="form-floating mb-3">
+              <input
+                type="number"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Quantity"
+                name="productStock"
+                defaultValue={product.productStock}
+              />
+              <label htmlFor="floatingInput">Quantity</label>
+            </div>
+          </div>
+          <div className="modal-footer">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Edit Product Info
+            </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

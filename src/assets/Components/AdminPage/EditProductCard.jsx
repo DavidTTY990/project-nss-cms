@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FunctionContext } from "../../../App";
 
 export default function EditProductCard({ data, productId }) {
-  const { handleDeleteProduct } = useContext(FunctionContext);
+  const { handleDeleteProduct, currentPage } = useContext(FunctionContext);
   return (
     <div className="col position-relative">
       <div className="position-absolute z-1">
@@ -11,14 +11,13 @@ export default function EditProductCard({ data, productId }) {
           className="btn btn-warning btn-sm me-2"
           data-bs-target={`#${productId}ForModal`}
           data-bs-toggle="modal"
-          role="button"
         >
           Edit
         </button>
         <button
           type="button"
           className="btn btn-danger btn-sm"
-          onClick={() => handleDeleteProduct(productId)}
+          onClick={() => handleDeleteProduct(productId, currentPage)}
         >
           Delete
         </button>

@@ -1,5 +1,5 @@
 import styles from "../../StyleComponents/ProductModal.module.css";
-import ProductCarousel from "./ProductCarousel";
+import ProductCarousel from "../CommonComponents/ProductCarousel";
 
 export function ProductModal() {
   return (

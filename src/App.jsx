@@ -15,6 +15,8 @@ function App() {
     fetchProductData(DummyData);
   }, []);
 
+
+  const [productData, setProductData] = useState([]);
   const [productCategory, setProductCategory] = useState([]);
   const [newProductInput, setNewProductInput] = useState({
     productName: "",
@@ -22,7 +24,7 @@ function App() {
     productPrice: "",
     productStock: "",
   });
-  const [productData, setProductData] = useState([]);
+  const [EditProductInput, setEditProductInput] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
 
   const productsPerPage = 9;
@@ -67,12 +69,10 @@ function App() {
   }
 
   function handleDeleteProduct(productId, currentPage) {
-    console.log(currentPageProducts.length)
     const newProductData = productData.filter(
       (product) => product.productId !== productId
     );
     setProductData(newProductData);
-    console.log(currentPageProducts)
     if (currentPageProducts.length === 1) {
       if (currentPage > 1) {
         handleSetCurrentPage(currentPage - 1);
@@ -84,12 +84,11 @@ function App() {
     setCurrentPage(pageNumber);
   }
 
-  function handleEditProductInput(productId, e) {
+  function handleEditProductInput(e, productId) {
+    const productToEdit = productData.find((product) => {
+      return product.productId === productId;
+    })
     const { name, value } = e.target;
-    const productToEdit = productData.find((item) => {
-      return item.productId === productId;
-    });
-    console.log(productToEdit);
   }
   return (
     <FunctionContext.Provider

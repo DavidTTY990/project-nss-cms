@@ -4,7 +4,7 @@ import { FunctionContext } from "../../../App";
 import ProductCarousel from "../CommonComponents/ProductCarousel"
 
 export default function AddNewProductModule() {
-  const { handleSetNewProductInput, handleSetProductData, newProductInput } =
+  const { handleSetNewProductInput, handleSetNewProductData, newProductInput } =
     useContext(FunctionContext);
   return (
     <div
@@ -89,7 +89,7 @@ export default function AddNewProductModule() {
               type="button"
               className="btn btn-primary"
               data-bs-dismiss="modal"
-              onClick={handleSetProductData}
+              onClick={handleSetNewProductData}
             >
               Add New Product
             </button>

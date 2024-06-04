@@ -5,7 +5,7 @@ import { FunctionContext } from "../../../App";
 
 
 export default function EditProductModal({ product }) {
-  const { handleEditProductInput } = useContext(FunctionContext);
+  const { handleEditProductInput, handleSetEditProductData } = useContext(FunctionContext);
   return (
     <div
       className="modal fade"
@@ -91,6 +91,7 @@ export default function EditProductModal({ product }) {
               type="button"
               className="btn btn-primary"
               data-bs-dismiss="modal"
+              onClick={handleSetEditProductData}
             >
               Edit Product Info
             </button>

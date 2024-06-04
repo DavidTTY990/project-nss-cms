@@ -24,7 +24,7 @@ function App() {
     productPrice: "",
     productStock: "",
   });
-  const [EditProductInput, setEditProductInput] = useState({});
+  const [EditProductInput, setEditProductInput] = useState([{}]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const productsPerPage = 9;
@@ -49,7 +49,7 @@ function App() {
     }));
   }
 
-  function handleSetProductData() {
+  function handleSetNewProductData() {
     const newProductData = {
       productId: new Date().getTime(),
       ...newProductInput,
@@ -60,6 +60,8 @@ function App() {
       },
     };
     setProductData((prevData) => [...prevData, newProductData]);
+    
+    // empty input after the data has set
     setNewProductInput({
       productName: "",
       productDes: "",
@@ -89,6 +91,15 @@ function App() {
       return product.productId === productId;
     })
     const { name, value } = e.target;
+    setEditProductInput([{
+      ...productToEdit,
+      [name]: value
+    }])
+  }
+
+  function handleSetEditProductData() {
+    const editedProductData = productData.map(productData => EditProductInput.find(editedProductData => editedProductData.productId === productData.productId || editedProductData));
+    console.log(editedProductData);
   }
   return (
     <FunctionContext.Provider
@@ -97,7 +108,8 @@ function App() {
         newProductInput,
         handleSetNewProductInput,
         handleEditProductInput,
-        handleSetProductData,
+        handleSetEditProductData,
+        handleSetNewProductData,
         handleDeleteProduct,
         handleSetCurrentPage,
         currentPageProducts,

@@ -15,16 +15,26 @@ function App() {
     fetchProductData(DummyData);
   }, []);
 
-
   const [productData, setProductData] = useState([]);
   const [productCategory, setProductCategory] = useState([]);
   const [newProductInput, setNewProductInput] = useState({
+    productId: new Date().getTime(),
+    productImg: {
+      img1: "https://fakeimg.pl/300/",
+      img2: "https://fakeimg.pl/300/",
+      img3: "https://fakeimg.pl/300/",
+    },
     productName: "",
     productDes: "",
     productPrice: "",
     productStock: "",
   });
-  const [EditProductInput, setEditProductInput] = useState([{}]);
+  const [EditProductInput, setEditProductInput] = useState({
+    productName: "",
+    productDes: "",
+    productPrice: "",
+    productStock: "",
+  });
   const [currentPage, setCurrentPage] = useState(1);
 
   const productsPerPage = 9;
@@ -50,19 +60,16 @@ function App() {
   }
 
   function handleSetNewProductData() {
-    const newProductData = {
-      productId: new Date().getTime(),
-      ...newProductInput,
-      productImg: {
-        img1: "/Image/蜂巢軟握中性筆1.jpg",
-        img2: "/Image/蜂巢軟握中性筆2.jpg",
-        img3: "/Image/蜂巢軟握中性筆3.jpg",
-      },
-    };
-    setProductData((prevData) => [...prevData, newProductData]);
-    
+    setProductData((prevData) => [...prevData, newProductInput]);
+
     // empty input after the data has set
     setNewProductInput({
+      productId: "",
+      productImg: {
+        img1: "",
+        img2: "",
+        img3: "",
+      },
       productName: "",
       productDes: "",
       productPrice: "",
@@ -87,19 +94,33 @@ function App() {
   }
 
   function handleEditProductInput(e, productId) {
+    console.log(productId);
     const productToEdit = productData.find((product) => {
       return product.productId === productId;
-    })
+    });
     const { name, value } = e.target;
-    setEditProductInput([{
+    setEditProductInput((prevProductInput) => ({
       ...productToEdit,
-      [name]: value
-    }])
+      ...prevProductInput,
+      [name]: value,
+    }));
+    console.log(EditProductInput);
   }
 
   function handleSetEditProductData() {
-    const editedProductData = productData.map(productData => EditProductInput.find(editedProductData => editedProductData.productId === productData.productId || editedProductData));
-    console.log(editedProductData);
+    const updatedProductData = productData.map((product) => {
+      if (product.productId === EditProductInput.productId) {
+        return EditProductInput;
+      }
+      return product;
+    });
+    setProductData(updatedProductData);
+    setEditProductInput({
+      productName: "",
+      productDes: "",
+      productPrice: "",
+      productStock: "",
+    });
   }
   return (
     <FunctionContext.Provider

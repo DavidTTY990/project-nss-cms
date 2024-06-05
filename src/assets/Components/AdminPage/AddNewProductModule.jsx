@@ -6,6 +6,7 @@ import ProductCarousel from "../CommonComponents/ProductCarousel"
 export default function AddNewProductModule() {
   const { handleSetNewProductInput, handleSetNewProductData, newProductInput } =
     useContext(FunctionContext);
+
   return (
     <div
       className="modal fade"
@@ -28,7 +29,8 @@ export default function AddNewProductModule() {
             ></button>
           </div>
           <div className="modal-body">
-            <div className="form-floating mb-3">
+            <ProductCarousel product={newProductInput} />
+            <div className="form-floating mt-3 mb-3">
               <input
                 type="text"
                 className="form-control"

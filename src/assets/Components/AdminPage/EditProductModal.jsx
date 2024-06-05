@@ -50,7 +50,7 @@ export default function EditProductModal({ product }) {
                 style={{ height: "100px" }}
                 name="productDes"
                 defaultValue={product.productDes}
-                onChange={handleEditProductInput}
+                onChange={(e) => handleEditProductInput(e, product.productId)}
               ></textarea>
               <label htmlFor="floatingTextarea2">Product Description</label>
             </div>
@@ -62,7 +62,7 @@ export default function EditProductModal({ product }) {
                 placeholder="Product Price"
                 name="productPrice"
                 defaultValue={product.productPrice}
-                onChange={handleEditProductInput}
+                onChange={(e) => handleEditProductInput(e, product.productId)}
               />
               <label htmlFor="floatingInput">Product Price</label>
             </div>
@@ -74,7 +74,7 @@ export default function EditProductModal({ product }) {
                 placeholder="Quantity"
                 name="productStock"
                 defaultValue={product.productStock}
-                onChange={handleEditProductInput}
+                onChange={(e) => handleEditProductInput(e, product.productId)}
               />
               <label htmlFor="floatingInput">Quantity</label>
             </div>

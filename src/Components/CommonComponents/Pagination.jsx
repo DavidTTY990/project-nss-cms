@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { FunctionContext } from "../../../App";
+import { ProductContext } from "../../Store/Product-context";
 
 export default function Pagination({ productsPerPage, length }) {
-  const { handleSetCurrentPage, currentPage } = useContext(FunctionContext);
+  const { handleSetCurrentPage, currentPage } = useContext(ProductContext);
   const paginationNumbers = [];
 
   for (let i = 1; i <= Math.ceil(length / productsPerPage); i++) {
@@ -12,11 +12,13 @@ export default function Pagination({ productsPerPage, length }) {
   return (
     <div className="container mt-5">
       <ul className="pagination d-flex justify-content-center">
-        <li className={
+        <li
+          className={
             currentPage === paginationNumbers[0]
               ? "page-item disabled"
               : "page-item"
-          }>
+          }
+        >
           <a
             className="page-link"
             href="#"

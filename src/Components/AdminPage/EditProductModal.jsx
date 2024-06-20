@@ -1,11 +1,11 @@
 import styles from "../../StyleComponents/ProductModal.module.css";
 import ProductCarousel from "../CommonComponents/ProductCarousel";
 import { useContext } from "react";
-import { FunctionContext } from "../../../App";
-
+import { ProductContext } from "../../Store/Product-context";
 
 export default function EditProductModal({ product }) {
-  const { handleEditProductInput, handleSetEditProductData } = useContext(FunctionContext);
+  const { handleEditProductData, handleSetEditProductData } =
+    useContext(ProductContext);
   return (
     <div
       className="modal fade"
@@ -38,7 +38,7 @@ export default function EditProductModal({ product }) {
                 placeholder="Product Name"
                 name="productName"
                 defaultValue={product.productName}
-                onChange={(e) => handleEditProductInput(e, product.productId)}
+                onChange={(e) => handleEditProductData(e, product.productId)}
               />
               <label htmlFor="floatingInput">Product Name</label>
             </div>
@@ -50,7 +50,7 @@ export default function EditProductModal({ product }) {
                 style={{ height: "100px" }}
                 name="productDes"
                 defaultValue={product.productDes}
-                onChange={(e) => handleEditProductInput(e, product.productId)}
+                onChange={(e) => handleEditProductData(e, product.productId)}
               ></textarea>
               <label htmlFor="floatingTextarea2">Product Description</label>
             </div>
@@ -62,7 +62,7 @@ export default function EditProductModal({ product }) {
                 placeholder="Product Price"
                 name="productPrice"
                 defaultValue={product.productPrice}
-                onChange={(e) => handleEditProductInput(e, product.productId)}
+                onChange={(e) => handleEditProductData(e, product.productId)}
               />
               <label htmlFor="floatingInput">Product Price</label>
             </div>
@@ -74,7 +74,7 @@ export default function EditProductModal({ product }) {
                 placeholder="Quantity"
                 name="productStock"
                 defaultValue={product.productStock}
-                onChange={(e) => handleEditProductInput(e, product.productId)}
+                onChange={(e) => handleEditProductData(e, product.productId)}
               />
               <label htmlFor="floatingInput">Quantity</label>
             </div>

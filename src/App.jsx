@@ -2,13 +2,12 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min"; // Bootstrap Bundle JS
 import "bootstrap-icons/font/bootstrap-icons.css"; // Bootstrap Icons
 
-import { DummyData } from "./assets/DummyData/DummyData";
-import { useState, useEffect, createContext } from "react";
-import globalStyles from "./assets/StyleComponents/GlobalCss.module.css";
-import UserFrontPage from "./assets/Components/UserPage/UserFrontPage";
-import AdmiFrontnPage from "./assets/Components/AdminPage/AdminFrontPage";
-
-export const FunctionContext = createContext(null);
+import { DummyData } from "./DummyData/DummyData";
+import { useState, useEffect } from "react";
+import globalStyles from "./StyleComponents/GlobalCss.module.css";
+import UserFrontPage from "./Components/UserPage/UserFrontPage";
+import AdminFrontPage from "./Components/AdminPage/AdminFrontPage";
+import ProductContextProvider from "./Store/Product-context";
 
 function App() {
   useEffect(() => {
@@ -29,7 +28,7 @@ function App() {
     productPrice: "",
     productStock: "",
   });
-  const [EditProductInput, setEditProductInput] = useState({
+  const [EditProductData, setEditProductData] = useState({
     productName: "",
     productDes: "",
     productPrice: "",
@@ -93,29 +92,28 @@ function App() {
     setCurrentPage(pageNumber);
   }
 
-  function handleEditProductInput(e, productId) {
-    console.log(productId);
+  function handleEditProductData(e, productId) {
     const productToEdit = productData.find((product) => {
       return product.productId === productId;
     });
     const { name, value } = e.target;
-    setEditProductInput((prevProductInput) => ({
+    setEditProductData(() => ({
       ...productToEdit,
-      ...prevProductInput,
       [name]: value,
     }));
-    console.log(EditProductInput);
   }
 
   function handleSetEditProductData() {
     const updatedProductData = productData.map((product) => {
-      if (product.productId === EditProductInput.productId) {
-        return EditProductInput;
+      if (product.productId === EditProductData.productId) {
+        return EditProductData;
       }
       return product;
     });
+
     setProductData(updatedProductData);
-    setEditProductInput({
+
+    setEditProductData({
       productName: "",
       productDes: "",
       productPrice: "",
@@ -123,12 +121,12 @@ function App() {
     });
   }
   return (
-    <FunctionContext.Provider
+    <ProductContextProvider
       value={{
         productData,
         newProductInput,
         handleSetNewProductInput,
-        handleEditProductInput,
+        handleEditProductData,
         handleSetEditProductData,
         handleSetNewProductData,
         handleDeleteProduct,
@@ -137,9 +135,8 @@ function App() {
         currentPage,
       }}
     >
-      {/* <UserFrontPage /> */}
-      <AdmiFrontnPage />
-    </FunctionContext.Provider>
+      <AdminFrontPage />
+    </ProductContextProvider>
   );
 }
 

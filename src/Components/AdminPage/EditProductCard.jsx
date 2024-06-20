@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { FunctionContext } from "../../../App";
+import { ProductContext } from "../../Store/Product-context";
 
 export default function EditProductCard({ data, productId }) {
-  const { handleDeleteProduct, currentPage } = useContext(FunctionContext);
+  const { handleDeleteProduct, currentPage } = useContext(ProductContext);
   return (
     <div className="col position-relative">
       <div className="position-absolute z-1">

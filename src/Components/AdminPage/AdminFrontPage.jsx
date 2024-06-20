@@ -4,10 +4,10 @@ import AddNewProductModule from "./AddNewProductModule";
 import AddNewProductCard from "./AddNewProductCard";
 import Pagination from "../CommonComponents/Pagination";
 import { useContext } from "react";
-import { FunctionContext } from "../../../App";
+import { ProductContext } from "../../Store/Product-context";
 
 export default function AdminFrontPage() {
-  const { productData, currentPageProducts } = useContext(FunctionContext);
+  const { productData, currentPageProducts } = useContext(ProductContext);
 
   return (
     <div className="container-fluid p-0">

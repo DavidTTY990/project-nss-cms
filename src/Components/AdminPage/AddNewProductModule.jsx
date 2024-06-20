@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { FunctionContext } from "../../../App";
+import { ProductContext } from "../../Store/Product-context";
 
-import ProductCarousel from "../CommonComponents/ProductCarousel"
+import ProductCarousel from "../CommonComponents/ProductCarousel";
 
 export default function AddNewProductModule() {
   const { handleSetNewProductInput, handleSetNewProductData, newProductInput } =
-    useContext(FunctionContext);
+    useContext(ProductContext);
 
   return (
     <div

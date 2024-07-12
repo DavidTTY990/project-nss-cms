@@ -59,7 +59,7 @@ function App() {
   }
 
   function handleSetNewProductData() {
-    setProductData((prevData) => [...prevData, newProductInput]);
+    setProductData((prevData) => [newProductInput, ...prevData]);
 
     // empty input after the data has set
     setNewProductInput({

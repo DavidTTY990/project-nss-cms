@@ -15,8 +15,10 @@ function App() {
   }, []);
 
   const [productData, setProductData] = useState([]);
+  // product category state
   const [productCategory, setProductCategory] = useState([]);
-  const [newProductInput, setNewProductInput] = useState({
+
+  const defaultProductData = {
     productId: new Date().getTime(),
     productImg: {
       img1: "https://fakeimg.pl/300/",
@@ -27,7 +29,8 @@ function App() {
     productDes: "",
     productPrice: "",
     productStock: "",
-  });
+  };
+  const [newProductInput, setNewProductInput] = useState(defaultProductData);
   const [EditProductData, setEditProductData] = useState({
     productName: "",
     productDes: "",
@@ -62,18 +65,7 @@ function App() {
     setProductData((prevData) => [newProductInput, ...prevData]);
 
     // empty input after the data has set
-    setNewProductInput({
-      productId: "",
-      productImg: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      productName: "",
-      productDes: "",
-      productPrice: "",
-      productStock: "",
-    });
+    setNewProductInput(defaultProductData);
   }
 
   function handleDeleteProduct(productId, currentPage) {

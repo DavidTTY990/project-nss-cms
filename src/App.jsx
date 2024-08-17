@@ -15,7 +15,11 @@ function App() {
   }, []);
 
   const [productData, setProductData] = useState([]);
-  const [productCategory, setProductCategory] = useState([]);
+
+  // 處理 filter 商品類別
+  const [currentCategory, setCurrentCategory] = useState('All');
+  const [productCategory, setProductCategory] = useState(['Stationary', 'Gift & toy', 'Paper products', 'Misc']);
+  // 
   const [newProductInput, setNewProductInput] = useState({
     productId: new Date().getTime(),
     productImg: {
@@ -35,7 +39,7 @@ function App() {
     productStock: "",
   });
   const [currentPage, setCurrentPage] = useState(1);
-
+  // For pagination
   const productsPerPage = 9;
 
   const indexOfLastProductPerPage = currentPage * productsPerPage;
@@ -120,6 +124,11 @@ function App() {
       productStock: "",
     });
   }
+
+  function handleSetProductCategory() {
+
+  }
+
   return (
     <ProductContextProvider
       value={{
@@ -133,6 +142,8 @@ function App() {
         handleSetCurrentPage,
         currentPageProducts,
         currentPage,
+        productCategory,
+        handleSetProductCategory,
       }}
     >
       <AdminFrontPage />

@@ -7,7 +7,12 @@ import { useContext } from "react";
 import { ProductContext } from "../../Store/Product-context";
 
 export default function AdminFrontPage() {
-  const { productData, currentPageProducts } = useContext(ProductContext);
+  const {
+    productData,
+    currentPageProducts,
+    productCategory,
+    handleSetProductCategory,
+  } = useContext(ProductContext);
 
   return (
     <div className="container-fluid p-0">
@@ -28,37 +33,18 @@ export default function AdminFrontPage() {
             <div className="row">
               <div className="col">
                 <div className="list-group list-group-flush">
-                  <a
-                    href="#"
-                    className="list-group-item list-group-item-action active"
-                    aria-current="true"
-                  >
-                    <p>Category 1</p>
-                  </a>
-                  <a
-                    href="#"
-                    className="list-group-item list-group-item-action"
-                  >
-                    <p>Category 2</p>
-                  </a>
-                  <a
-                    href="#"
-                    className="list-group-item list-group-item-action"
-                  >
-                    <p>Category 3</p>
-                  </a>
-                  <a
-                    href="#"
-                    className="list-group-item list-group-item-action"
-                  >
-                    <p>Category 4</p>
-                  </a>
-                  <a
-                    href="#"
-                    className="list-group-item list-group-item-action"
-                  >
-                    <p>Category 5</p>
-                  </a>
+                  {/* 這邊改用迴圈渲染 */}
+                  {productCategory.map(category => {
+                     return (
+                      <a
+                        href="#"
+                        className="list-group-item list-group-item-action"
+                        aria-current="true"
+                      >
+                        <p>{category}</p>
+                      </a>
+                    );
+                  })}
                   <a
                     href="#"
                     className="list-group-item list-group-item-action list-group-item-success"

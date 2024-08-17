@@ -15,12 +15,10 @@ function App() {
   }, []);
 
   const [productData, setProductData] = useState([]);
+  // product category state
+  const [productCategory, setProductCategory] = useState([]);
 
-  // 處理 filter 商品類別
-  const [currentCategory, setCurrentCategory] = useState('All');
-  const [productCategory, setProductCategory] = useState(['Stationary', 'Gift & toy', 'Paper products', 'Misc']);
-  // 
-  const [newProductInput, setNewProductInput] = useState({
+  const defaultProductData = {
     productId: new Date().getTime(),
     productImg: {
       img1: "https://fakeimg.pl/300/",
@@ -31,7 +29,8 @@ function App() {
     productDes: "",
     productPrice: "",
     productStock: "",
-  });
+  };
+  const [newProductInput, setNewProductInput] = useState(defaultProductData);
   const [EditProductData, setEditProductData] = useState({
     productName: "",
     productDes: "",
@@ -63,21 +62,10 @@ function App() {
   }
 
   function handleSetNewProductData() {
-    setProductData((prevData) => [...prevData, newProductInput]);
+    setProductData((prevData) => [newProductInput, ...prevData]);
 
     // empty input after the data has set
-    setNewProductInput({
-      productId: "",
-      productImg: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      productName: "",
-      productDes: "",
-      productPrice: "",
-      productStock: "",
-    });
+    setNewProductInput(defaultProductData);
   }
 
   function handleDeleteProduct(productId, currentPage) {
